@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html><!-- InstanceBegin template="/Templates/Design Template.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8" />
+
+    <!-- InstanceBeginEditable name="docname" -->
+    <title>The Music Store - Item Comparison</title>
+    <!-- InstanceEndEditable -->
+
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+
+    <!-- InstanceBeginEditable name="headscripts" -->
+    <script src="scripts/main.js"></script>
+    <!-- InstanceEndEditable -->
+
+</head>
+<body>
+   <section id="main">
+       <section id="main_content">
+           <header>
+               <div id="sitelogo">
+                   <a href="index.html"><img src="images/logo.png" alt="The Music Store" /></a>
+               </div>
+               <!-- InstanceBeginEditable name="pagecontents" -->
+               <div id="headerinfo">
+                   <p>&nbsp;</p>
+                   <p>Call now: <span style="font-size: 1.5em;">800.555.3839</span></p>
+               </div>
+
+           </header>
+
+           <!-- End Header -->
+           <!-- Begin Content -->
+
+
+           <h1>Comparisons</h1>
+
+           <input type="button" class="buttons" value="Get Images" onclick="getImages();" />
+           <input type="button" class="buttons" value="Get Social Classes" onclick="getClasses();" />
+           <input type="button" class="buttons" value="Change Heading" onclick="setAltHeadingClass();" />
+           <input type="button" class="buttons" value="Create Element" onclick="addConstructionMsg();" />
+           <input type="button" class="buttons" value="Print Character" onclick="printCharacterGrid(docUrl);" />
+           <br />
+           <input type="text" id="winS" size="13" name="enter window size" value="enter window size: " />
+
+           <input type="button" class="buttons" value="enter window size" onclick="winSize();" />
+           <p id="output">Output:</p>
+
+
+
+           <!-- InstanceEndEditable -->
+           <!-- End Content -->
+
+
+       </section>
+   </section>
+
+
+<!-- Begin Footer -->
+
+	   <footer>
+			<p><a href="index.html">Home</a> | <a href="products.htm">Products</a> | <a href="lessons.htm">Lessons</a> | <a href="contact.htm">Contact Us</a></p>
+
+       		<p>Copyright &copy; 2017 The Music Store, 1000 Broadway, Salt Lake City, UT 84103</p>
+
+       		<p class="social"><img src="images/icon_facebook.png" alt="Facebook"/><img src="images/icon_googleplus.png" alt="Google+"/><img src="images/icon_linkedin.png" alt="LinkedIn"/><img src="images/icon_twitter.png" alt="Twitter"/><img src="images/icon_youtube.png" alt="YouTube"/><img src="images/icon_rss.png" alt="RSS"/></p>
+	   </footer>
+
+    <script>
+        const textField = document.getElementById("winS");
+        const docUrl = 'https://docs.google.com/document/d/e/2PACX-1vSHesOf9hv2sPOntssYrEdubmMQm8lwjfwv6NPjjmIRYs_FOYXtqrYgjh85jBUebK9swPXh_a5TJ5Kl/pub';
+        //const docUrl = 'https://docs.google.com/document/d/e/2PACX-1vRMx5YQlZNa3ra8dYYxmv-QIQ3YJe8tbI3kqcuC7lQiZm-CSEznKfN_HYNSpoXcZIV3Y_O3YoUB1ecq/pub';
+        textField.addEventListener("focus", () => {
+          if (textField.value != ' ') {
+            textField.value = "";
+          }
+        });
+
+        function getImages() {
+            var imgList = document.getElementsByTagName("img");
+            for (var i = 0; i < imgList.length; i++) {
+                document.getElementById('output').innerHTML += "<br />" + imgList[i].src;
+            }
+        }
+        function getClasses() {
+            var classList = document.getElementsByClassName("social");
+                document.getElementById('output').innerHTML += "<br />" + classList.length;
+        }
+
+        function setAltHeadingClass() {
+            document.getElementsByTagName("h1")[0].setAttribute("class", "altheading");
+        }
+
+        function addConstructionMsg() {
+            var constructionP = document.createElement("p");
+            var constructionText = document.createTextNode("This page is under construction. " +
+                "We're not actually comparing instruments right now.");
+            constructionP.appendChild(constructionText);
+            document.getElementById('sitelogo').appendChild(constructionP);
+        }
+        function winSize() {
+                                var result = -1;
+                                var input = document.getElementById('winS').value
+                                input = parseInt(input);
+                                if (input == null)
+                                result = 10;
+                                else if (input == undefined)
+                                results = 20;
+                                else {
+                                    var iresult ;
+                                        for (var i=0; i<input; i++) 
+                                        {
+                                                                    if (i%2 == 0)
+                                                                        result += i;
+                                                                        else
+                                                                             result += i+1;
+                                                                             iresult += result + ',';
+                                                                     }
+                                        }
+                                alert( 'The "result" is: '+ result +' by ' + iresult);
+                             }
+    </script>
+
+</body>
+<!-- InstanceEnd --></html>
